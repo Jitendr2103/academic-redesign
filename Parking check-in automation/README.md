@@ -125,10 +125,11 @@ Daily Total Check-In Effort (300 Vehicles) = 300 * 0.75 mins = 225 minutes (3.75
 
 ### 5 Synthetic Test Scenarios
 
-| Case ID | Scenario | Input / Action | System Behavior & Path | Expected Result & Recovery | Accountable Decider |
+
+| Case ID | Scenario Type | Input / Action | System Behavior & Path | Expected Result & Recovery | Accountable Decider |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **TC-01** | Normal Check-In | Registered student scans lot QR code on arrival | App validates token, logs arrival timestamp, updates gate dashboard | Instant green checkmark displayed; entry recorded in < 3 seconds | System |
-| **TC-02** | Unregistered Vehicle | A new or borrowed vehicle without pre-registration | System prompts for temporary plate number entry via web view | Temporary pass logged in 15 seconds; prompts to register vehicle later | Security Guard |
-| **TC-03** | Network Offline | Campus mobile data drops during peak morning arrival hour | App switches to offline local storage mode | Entries stored locally; auto-synced to cloud once connection restores | IT Security Admin |
-| **TC-04** | Forgot to Check Out | Student leaves parking area without scanning exit QR code | System auto-flags open entries exceeding 12 hours at midnight | Automated SMS/push reminder sent to confirm vehicle status | System Audit Cron |
-| **TC-05** | Blocked Vehicle Alert | Guard needs to contact owner of a vehicle blocking an exit lane | Guard inputs plate number into dashboard search | Displays phone number & emergency call option instantly | Security Guard |
+| **TC-01** | **Normal** | Pre-registered student scans lot QR code on arrival. | App validates session token, logs arrival timestamp, updates gate dashboard. | Instant green checkmark displayed; entry recorded in $< 3$ seconds. | Automated System |
+| **TC-02** | **Missing Information** | Student submits digital check-in form without entering vehicle license plate number. | Form validation catches missing required field before database commit. | UI highlights missing field in red with prompt ("Please enter vehicle number"); submission blocked until filled. | Student / UI Validator |
+| **TC-03** | **Duplicate** | Student accidentally scans and submits check-in QR code twice within 2 minutes. | System checks active session database and detects an open check-in for this user/vehicle. | App displays message: *"You are already checked in at South Lot"* and prevents duplicate log creation. | Automated System |
+| **TC-04** | **Unauthorized Request** | An unrecognized or blocked vehicle ID/token attempts to log entry via the public portal. | Security rules engine flags the ID against the restricted vehicle registry. | Access denied alert triggered on security dashboard; prompts user to report to campus security desk. | Security Guard |
+| **TC-05** | **Failed Step** | Mobile network/cellular data drops mid-submission during peak morning arrival hour. | App encounters timeout on HTTP POST request to cloud server. | App automatically switches to local offline cache mode, saves timestamp locally, and syncs automatically once network restores. | IT Security Admin |
