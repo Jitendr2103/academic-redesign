@@ -21,8 +21,8 @@ This repository contains the complete two-part submission for the B.Tech Artific
 ```
 
 ## Submission & Release Links
-* **Named Release Tag:** [https://github.com/JitendraKadiyala/academic-redesign/releases/tag/v1.0-submission]
-* **Full Commit URL:** [https://github.com/Jitendr2103/academic-redesign/commit/a930ec45456c4022150f0ec56d2997b198213da3]
+- **Named Release Tag:** [v1.0-submission](https://github.com/Jitendr2103/academic-redesign/releases/tag/v1.0-submission)
+- **Full Commit URL:** [a930ec4](https://github.com/Jitendr2103/academic-redesign/commit/a930ec45456c4022150f0ec56d2997b198213da3)
 
 ## Benchmarking Sources & Access Dates
 All industry alignment and gap analyses were benchmarked against active, public job descriptions and technical standards:
