@@ -73,6 +73,28 @@ To bridge these critical gaps without increasing the overall credit load (166 cr
 
 ---
 
+## 4.1 Curriculum Action Framework & Rationale
+
+### 1. KEEP (Foundational Rigor)
+1. **Linear Algebra & Calculus (MA101, MA102):** Fundamental matrix decomposition and vector calculus form the indispensable mathematical baseline for gradient estimation and modern architecture design.
+2. **Data Structures & Algorithms (CS102, CS203):** Essential for computational complexity reduction, memory management, and efficient algorithmic implementations in production.
+3. **Core ML & Deep Learning (DS304, DS306):** Solid coverage of classical statistical estimators, backpropagation, CNNs, and Transformers.
+
+### 2. UPDATE (Modernization of Tools & Practices)
+4. **CS205 (Web-Enabled Tech -> Full-Stack AI & API Engineering):** Shift from legacy static web development to building asynchronous inference APIs with FastAPI, Pydantic, gRPC, and Docker containerization.
+5. **DS305 (Data Wrangling -> Data Quality & Observability):** Upgrade generic pandas/matplotlib cleaning to automated schema enforcement, data validation pipelines (Great Expectations, DBT), and lineage tracking.
+6. **SP301 (Special Project -> Model Optimization Capstone):** Re-orient general capstone projects toward hands-on model quantization (INT8/FP8), ONNX runtime export, and serving optimization.
+
+### 3. REDUCE (Deprecation of Outdated / Off-Target Coursework)
+7. **ML302 (Fuzzy and Rough Set Theory):** Deprecate legacy soft computing paradigms in favor of empirical statistical experiment design, counterfactual reasoning, and causal inference.
+8. **DS303 (Blockchain Technology):** Replace niche decentralized ledger concepts with high-demand MLOps infrastructure, model registries, and feature store engineering.
+9. **DS401 (Human-Computer Interaction):** Shift theoretical UI/UX design concepts toward high-throughput distributed AI systems, GPU cluster coordination, and parallel computing.
+
+### 4. ADD (High-Demand Industry Competencies)
+10. **DS309 (MLOps & ML Infrastructure):** Introduce industry-standard continuous integration and deployment (CI/CD) pipelines, experiment tracking via MLflow, and feature store architectures with Feast.
+11. **DS312 (Applied Causal Inference & A/B Testing):** Equip students with formal statistical experiment design, counterfactual modeling, synthetic controls, and multi-armed bandit strategies.
+12. **CS308 (Distributed AI & Scalable Systems):** Provide practical experience with distributed training frameworks (PyTorch DDP, DeepSpeed, Ray) and LLM serving infrastructures (vLLM, TensorRT-LLM).
+
 ## 5. Modernized Course Outlines (Key New Additions)
 
 ### 1. DS309: MLOps & ML Infrastructure (Semester 5 | 3 Credits)
@@ -98,3 +120,14 @@ To bridge these critical gaps without increasing the overall credit load (166 cr
 | **Data Scientist** | 82% | **96%** | End-to-end fluency in statistical modeling, causal inference, A/B testing, automated data quality, and generative AI. |
 | **Machine Learning Engineer** | 68% | **94%** | Proficiency in C++/Python inference, TensorRT/ONNX compilation, vLLM deployment, and high-performance microservices. |
 | **MLOps Engineer** | 45% | **92%** | Hands-on mastery of MLflow, DVC, Feast, Docker, Kubernetes, CI/CD pipelines, Prometheus monitoring, and drift detection. |
+
+---
+
+## 7. Industry Benchmark Sources & Job Description Evidence
+
+1. **Senior Data Scientist - A/B Testing & Causal Inference** | Meta / LinkedIn Job Posting  
+   * *Observed Date:* October 2026 | *Key Requirement:* Strong foundation in counterfactual reasoning, experimental design, synthetic controls, and automated statistical testing. Validate inclusion of **DS312 Applied Causal Inference**.
+2. **Machine Learning Engineer - High-Performance Inference** | NVIDIA / Careers Portal  
+   * *Observed Date:* October 2026 | *Key Requirement:* Experience with ONNX, TensorRT, model quantization (INT8/FP8), C++ CUDA execution, and vLLM serving frameworks. Validates restructuring of **SP301 Production Model Optimization**.
+3. **MLOps Engineer - Platform & Infrastructure** | Stripe / Tech Careers  
+   * *Observed Date:* October 2026 | *Key Requirement:* Mastery over MLflow, DVC, Feast feature stores, Kubernetes orchestration, Docker, and GitHub Actions CI/CD for continuous retraining. Validates creation of **DS309 MLOps & ML Infrastructure**.
