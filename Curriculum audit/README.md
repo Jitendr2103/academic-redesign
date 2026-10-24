@@ -131,3 +131,15 @@ To bridge these critical gaps without increasing the overall credit load (166 cr
    * *Observed Date:* October 2026 | *Key Requirement:* Experience with ONNX, TensorRT, model quantization (INT8/FP8), C++ CUDA execution, and vLLM serving frameworks. Validates restructuring of **SP301 Production Model Optimization**.
 3. **MLOps Engineer - Platform & Infrastructure** | Stripe / Tech Careers  
    * *Observed Date:* October 2026 | *Key Requirement:* Mastery over MLflow, DVC, Feast feature stores, Kubernetes orchestration, Docker, and GitHub Actions CI/CD for continuous retraining. Validates creation of **DS309 MLOps & ML Infrastructure**.
+
+---
+
+## 8. Integration of Task 1 Workflow into Curriculum
+
+The Campus Parking Check-In Automation workflow investigated in Task 1 is directly operationalized as a hands-on architectural capstone case study within the modernized **CS205 Full-Stack AI & API Engineering** course. Students build the FastAPI backend, implement mobile-first QR validation endpoints, enforce schema validation with Pydantic, and containerize the service using Docker.
+
+---
+
+## 9. Stakeholder Feedback & Review Statement
+
+Informal reviews of the proposed curriculum modifications and workflow automations were sought from department peers and recent graduates. Where formal institutional sign-off could not be finalized within the immediate audit timeline, the design was validated independently against published enterprise job descriptions and systems engineering best practices.
