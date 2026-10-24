@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B.Tech AI&DS Interactive Credit & Course Explorer</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; max-width: 900px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.5; }
+        h1 { font-size: 24px; border-bottom: 2px solid #eaeaea; padding-bottom: 10px; }
+        .controls { display: flex; gap: 15px; margin-bottom: 20px; flex-wrap: wrap; }
+        select, input { padding: 8px 12px; font-size: 14px; border: 1px solid #ccc; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; font-size: 14px; }
+        th { background-color: #f8f9fa; }
+        .badge { padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; color: #fff; }
+        .bg-keep { background-color: #28a745; }
+        .bg-update { background-color: #ffc107; color: #333; }
+        .bg-reduce { background-color: #dc3545; }
+        .bg-add { background-color: #007bff; }
+        .summary-box { background: #f1f3f5; padding: 15px; border-radius: 6px; margin-bottom: 20px; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+    <h1>B.Tech AI&DS Course & Credit Explorer</h1>
+    <div class="summary-box">
+        Total Filtered Credits: <span id="totalCredits">166</span> | Total Courses Displayed: <span id="totalCourses">24</span>
+    </div>
+
+    <div class="controls">
+        <div>
+            <label for="semesterFilter">Filter by Semester: </label>
+            <select id="semesterFilter" onchange="filterTable()">
+                <option value="all">All Semesters</option>
+                <option value="1">Semester 1</option>
+                <option value="2">Semester 2</option>
+                <option value="3">Semester 3</option>
+                <option value="4">Semester 4</option>
+                <option value="5">Semester 5</option>
+                <option value="6">Semester 6</option>
+                <option value="7">Semester 7</option>
+                <option value="8">Semester 8</option>
+            </select>
+        </div>
+        <div>
+            <label for="statusFilter">Filter by Action: </label>
+            <select id="statusFilter" onchange="filterTable()">
+                <option value="all">All Actions</option>
+                <option value="KEEP">KEEP</option>
+                <option value="UPDATE">UPDATE</option>
+                <option value="REDUCE">REDUCE</option>
+                <option value="ADD">ADD / NEW</option>
+            </select>
+        </div>
+    </div>
+
+    <table id="courseTable">
+        <thead>
+            <tr>
+                <th>Sem</th>
+                <th>Code</th>
+                <th>Course Name</th>
+                <th>Credits</th>
+                <th>Modernization Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr data-sem="1" data-status="KEEP"><td>1</td><td>MA101</td><td>Linear Algebra & Differential Equations</td><td>4</td><td><span class="badge bg-keep">KEEP</span></td></tr>
+            <tr data-sem="1" data-status="KEEP"><td>1</td><td>PY101</td><td>Physics</td><td>3</td><td><span class="badge bg-keep">KEEP</span></td></tr>
+            <tr data-sem="1" data-status="KEEP"><td>1</td><td>CS101</td><td>Computer Programming</td><td>4</td><td><span class="badge bg-keep">KEEP</span></td></tr>
+            <tr data-sem="2" data-status="KEEP"><td>2</td><td>MA102</td><td>Higher Calculus</td><td>4</td><td><span class="badge bg-keep">KEEP</span></td></tr>
+            <tr data-sem="2" data-status="KEEP"><td>2</td><td>CS102</td><td>Data Structures</td><td>4</td><td><span class="badge bg-keep">KEEP</span></td></tr>
+            <tr data-sem="4" data-status="UPDATE"><td>4</td><td>CS205</td><td>Full-Stack AI & API Engineering (Updated)</td><td>4</td><td><span class="badge bg-update">UPDATE</span></td></tr>
+            <tr data-sem="5" data-status="ADD"><td>5</td><td>DS309</td><td>MLOps & ML Infrastructure (Added)</td><td>3</td><td><span class="badge bg-add">ADD</span></td></tr>
+            <tr data-sem="6" data-status="REDUCE"><td>6</td><td>ML302</td><td>Fuzzy & Rough Set Theory (Deprecated)</td><td>3</td><td><span class="badge bg-reduce">REDUCE</span></td></tr>
+            <tr data-sem="6" data-status="ADD"><td>6</td><td>DS312</td><td>Applied Causal Inference & A/B Testing</td><td>3</td><td><span class="badge bg-add">ADD</span></td></tr>
+            <tr data-sem="7" data-status="ADD"><td>7</td><td>CS308</td><td>Distributed AI & Scalable Systems</td><td>3</td><td><span class="badge bg-add">ADD</span></td></tr>
+        </tbody>
+    </table>
+
+    <script>
+        function filterTable() {
+            const sem = document.getElementById('semesterFilter').value;
+            const status = document.getElementById('statusFilter').value;
+            const rows = document.querySelectorAll('#courseTable tbody tr');
+            
+            let totalCreds = 0;
+            let visibleCount = 0;
+
+            rows.forEach(row => {
+                const rowSem = row.getAttribute('data-sem');
+                const rowStatus = row.getAttribute('data-status');
+                const creds = parseInt(row.children[3].innerText);
+
+                const matchesSem = (sem === 'all' || rowSem === sem);
+                const matchesStatus = (status === 'all' || rowStatus === status);
+
+                if (matchesSem && matchesStatus) {
+                    row.style.display = '';
+                    totalCreds += creds;
+                    visibleCount++;
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            document.getElementById('totalCredits').innerText = totalCreds;
+            document.getElementById('totalCourses').innerText = visibleCount;
+        }
+    </script>
+</body>
+</html>
